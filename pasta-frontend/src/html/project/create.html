@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>instax</title>
+
+    <!-- build:less /css/all.css -->
+    <link rel="stylesheet/less" type="text/css" href="/bower_components/bootstrap/less/bootstrap.less" />
+    <link rel="stylesheet/less" type="text/css" href="/bower_components/font-awesome/less/font-awesome.less" />
+    <link rel="stylesheet/less" type="text/css" href="/inspinia/less/style.less" />
+    <link rel="stylesheet/less" type="text/css" href="/less/custom.less" />
+    <!-- endbuild -->
+    <!-- build:less /css/project/create.css -->
+    <link rel="stylesheet/less" type="text/css" href="/bower_components/selectize/dist/css/selectize.css">
+    <link rel="stylesheet/less" type="text/css" href="/bower_components/selectize/dist/css/selectize.bootstrap3.css">
+    <!-- endbuild -->
+    <!-- build:remove -->
+    <script type="application/javascript" src="/bower_components/less/dist/less.min.js"></script>
+    <!-- endbuild -->
+</head>
+<body class="fixed-nav">
+    <div id="wrapper" class="common-index">
+        <div class="page-header">
+            <h1>서비스 추가</h1>
+        </div>
+        <form class="form-horizontal" action="/project/create" method="POST">
+            <div class="form-group" id="esm">
+                <label for="esmcode" class="col-sm-2 control-label">ESM code</label>
+                <div class="col-sm-8">
+                    <input name="esmcode" type="text" id="esmcode" class="form-control text" placeholder="ESM Code" />
+                </div>
+                <div class="col-sm-2" >
+                    <a href="#" class="btn btn-primary search">검색</a>
+                    <a href="#" class="btn btn-primary">트리검색</a>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="service-name" class="col-sm-2 control-label">Service Name</label>
+                <div class="col-sm-8">
+                    <input name="service-name" type="text" class="form-control" id="service-name" placeholder="Service Name" />
+                </div>
+            </div>
+            <!-- http://selectize.github.io/selectize.js/ -->
+            <div class="form-group">
+                <label for="admin" class="col-sm-2 control-label">관리자</label>
+
+                <div class="col-sm-10">
+                    <select name="admin" class="form-control" id="admin" placeholder="admin" multiple="multiple">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="users" class="col-sm-2 control-label">사용자</label>
+                <div class="col-sm-10">
+                    <select name="users" class="form-control" id="users" placeholder="user" multiple="multiple">
+                        <optgroup label="test">
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">설명</label>
+                <div class="col-sm-10">
+                    <textarea name="description" class="form-control" placeholder="description"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- build:js /js/common.min.js -->
+    <script type="application/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+    <script type="application/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js /js/project/create.js -->
+    <script src="/bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
+    <script src="/js/project/ESMpopup.js"></script>
+    <script src="/js/project/create.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        instax.project.create.init({
+            nssApiEndpoint: "{{config.imEndpoint}}",
+            esm: {
+                //TODO
+                serverType: "{{esm.serverType}}",
+                legacyId: "{{esm.legacyId}}",
+                empNo: "{{esm.employeeNumber}}"
+            }
+        });
+    </script>
+</body>
+</html>

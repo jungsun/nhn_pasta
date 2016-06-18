@@ -1,0 +1,32 @@
+index:
+  services:
+    - name: test1
+      description: test1
+    - name: test2
+      description: test2
+    - name: test3
+      description: test3
+    - name: test4
+      description: test4
+project/create:
+  config:
+    imEndpoint: /api/user/all
+  esm:
+    employeeNumber: KR10000
+    legacyId: 1
+    serverType: dev
+dashboard:
+  stack: npot
+dashboard/topnav:
+  service: blog
+  stack: npot
+  columns:
+    - category: test
+      services:
+        - type: link
+          url: /test
+          id: test
+        - type: aa
+          id: testtest
+          mark: test
+

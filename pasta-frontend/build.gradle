@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "com.moowork.gradle:gradle-node-plugin:0.12"
+        classpath 'com.moowork.gradle:gradle-gulp-plugin:0.12'
+    }
+}
+
+apply plugin: 'com.moowork.node'
+apply plugin: 'com.moowork.gulp'
+
+node {
+    // Version of node to use.
+    version = '4.4.5'
+
+    // Enabled the automatic download. False is the default (for now).
+    download = true
+}
+
+gulp {
+    colors = true
+}
+
+task gulp(dependsOn: ["npmInstall", "installGulp"], type: GulpTask){
+    args = ["default"]
+}
+
+task gulpCopyToSpring(dependsOn: ["npmInstall", "installGulp"], type: GulpTask) {
+    args = ["copy-to-spring", "--target", project(":pasta-server").buildDir.path + '/resources/main']
+}
+
+task gulpWatchResource(dependsOn: ["npmInstall", "installGulp"], type: GulpTask) {
+    args = ["spring-watch", "--target", project(":pasta-server").buildDir.path + '/resources/main']
+}
+
+tasks.installGulp.dependsOn tasks.npmInstall
