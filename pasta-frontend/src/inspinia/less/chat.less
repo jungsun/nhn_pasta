@@ -5,13 +5,13 @@
   z-index: 100;
 }
 
-#small-chat .badge {
+#small-chat .-pasta-badge {
   position: absolute;
   top: -3px;
   right: -4px;
 }
 
-.open-small-chat {
+.-pasta-open-small-chat {
   height: 38px;
   width: 38px;
   display: block;
@@ -22,12 +22,12 @@
   border-radius: 50%;
 }
 
-.open-small-chat:hover {
+.-pasta-open-small-chat:hover {
   color: white;
   background: #1ab394;
 }
 
-.small-chat-box {
+.-pasta-small-chat-box {
   display: none;
   position: fixed;
   bottom: 20px;
@@ -39,40 +39,40 @@
   border-radius: 4px;
 }
 
-.small-chat-box.ng-small-chat {
+.-pasta-small-chat-box.-pasta-ng-small-chat {
   display: block;
 }
 
-.body-small {
-  .small-chat-box {
+.-pasta-body-small {
+  .-pasta-small-chat-box {
     bottom: 70px;
     right: 20px;
   }
 }
 
-.small-chat-box.active {
+.-pasta-small-chat-box.-pasta-active {
   display: block;
 }
 
-.small-chat-box {
+.-pasta-small-chat-box {
 
-  .heading {
+  .-pasta-heading {
     background: @nav-bg;
     padding: 8px 15px;
     font-weight: bold;
     color: #fff;
   }
 
-  .chat-date {
+  .-pasta-chat-date {
     opacity: 0.6;
     font-size: 10px;
     font-weight: normal;
   }
 
-  .content {
+  .-pasta-content {
     padding: 15px 15px;
 
-    .author-name {
+    .-pasta-author-name {
       font-weight: bold;
       margin-bottom: 3px;
       font-size: 11px;
@@ -82,7 +82,7 @@
       padding-bottom: 20px;
     }
 
-    .chat-message {
+    .-pasta-chat-message {
       padding: 5px 10px;
       border-radius: 6px;
       font-size: 11px;
@@ -92,25 +92,25 @@
       margin-bottom: 10px;
     }
 
-    .chat-message.active {
+    .-pasta-chat-message.-pasta-active {
       background: #1ab394;
       color: #fff;
     }
 
-    .left {
+    .-pasta-left {
       text-align: left;
       clear: both;
 
-      .chat-message {
+      .-pasta-chat-message {
         float: left;
       }
     }
 
-    .right {
+    .-pasta-right {
       text-align: right;
       clear: both;
 
-      .chat-message {
+      .-pasta-chat-message {
         float: right;
       }
 
@@ -118,7 +118,7 @@
 
   }
 
-  .form-chat {
+  .-pasta-form-chat {
     padding: 10px 10px;
   }
 

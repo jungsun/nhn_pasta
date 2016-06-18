@@ -5,15 +5,15 @@
     min-height: 1200px;
   }
 
-  .navbar-static-side {
+  .-pasta-navbar-static-side {
     z-index: 2001;
     position: absolute;
     width: @sidebar-width;
   }
 
-  .navbar-top-links .dropdown-messages,
-  .navbar-top-links .dropdown-tasks,
-  .navbar-top-links .dropdown-alerts {
+  .-pasta-navbar-top-links .-pasta-dropdown-messages,
+  .-pasta-navbar-top-links .-pasta-dropdown-tasks,
+  .-pasta-navbar-top-links .-pasta-dropdown-alerts {
     margin-left: auto;
   }
 }
@@ -26,54 +26,54 @@
     min-height: 1000px;
   }
 
-  .body-small .navbar-static-side {
+  .-pasta-body-small .-pasta-navbar-static-side {
     display: none;
     z-index: 2001;
     position: absolute;
     width: 70px;
   }
 
-  .body-small.mini-navbar .navbar-static-side {
+  .-pasta-body-small.-pasta-mini-navbar .-pasta-navbar-static-side {
     display: block;
   }
 
-  .lock-word {
+  .-pasta-lock-word {
     display: none;
   }
 
-  .navbar-form-custom {
+  .-pasta-navbar-form-custom {
     display: none;
   }
 
-  .navbar-header {
+  .-pasta-navbar-header {
     display: inline;
     float: left;
   }
 
-  .sidebard-panel {
+  .-pasta-sidebard-panel {
     z-index: 2;
     position: relative;
     width: auto;
     min-height: 100% !important;
   }
 
-  .sidebar-content .wrapper {
+  .-pasta-sidebar-content .-pasta-wrapper {
     padding-right: 0;
     z-index: 1;
   }
 
-  .fixed-sidebar.body-small .navbar-static-side {
+  .-pasta-fixed-sidebar.-pasta-body-small .-pasta-navbar-static-side {
     display: none;
     z-index: 2001;
     position: fixed;
     width: @sidebar-width;
   }
 
-  .fixed-sidebar.body-small.mini-navbar .navbar-static-side {
+  .-pasta-fixed-sidebar.-pasta-body-small.-pasta-mini-navbar .-pasta-navbar-static-side {
     display: block;
   }
 
-  .ibox-tools {
+  .-pasta-ibox-tools {
     float: none;
     text-align: right;
     display: block;
@@ -83,14 +83,14 @@
 
 @media (max-width: 350px) {
 
-  .timeline-item .date {
+  .-pasta-timeline-item .-pasta-date {
     text-align: left;
     width: 110px;
     position: relative;
     padding-top: 30px;
   }
 
-  .timeline-item .date i {
+  .-pasta-timeline-item .-pasta-date i {
     position: absolute;
     top: 0;
     left: 15px;
@@ -101,18 +101,18 @@
     background: #f8f8f8;
   }
 
-  .timeline-item .content {
+  .-pasta-timeline-item .-pasta-content {
     border-left: none;
     border-top: 1px solid @border-color;
     padding-top: 10px;
     min-height: 100px;
   }
 
-  .nav.navbar-top-links li.dropdown {
+  .-pasta-nav.-pasta-navbar-top-links li.-pasta-dropdown {
     display: none;
   }
 
-  .ibox-tools {
+  .-pasta-ibox-tools {
     float: none;
     text-align: left;
     display: inline-block;
