@@ -1,0 +1,302 @@
+//
+// Typography
+// --------------------------------------------------
+
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6,
+.-pasta-h1, .-pasta-h2, .-pasta-h3, .-pasta-h4, .-pasta-h5, .-pasta-h6 {
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color: @headings-color;
+
+  small,
+  .-pasta-small {
+    font-weight: normal;
+    line-height: 1;
+    color: @headings-small-color;
+  }
+}
+
+h1, .-pasta-h1,
+h2, .-pasta-h2,
+h3, .-pasta-h3 {
+  margin-top: @line-height-computed;
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .-pasta-small {
+    font-size: 65%;
+  }
+}
+h4, .-pasta-h4,
+h5, .-pasta-h5,
+h6, .-pasta-h6 {
+  margin-top: (@line-height-computed / 2);
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .-pasta-small {
+    font-size: 75%;
+  }
+}
+
+h1, .-pasta-h1 { font-size: @font-size-h1; }
+h2, .-pasta-h2 { font-size: @font-size-h2; }
+h3, .-pasta-h3 { font-size: @font-size-h3; }
+h4, .-pasta-h4 { font-size: @font-size-h4; }
+h5, .-pasta-h5 { font-size: @font-size-h5; }
+h6, .-pasta-h6 { font-size: @font-size-h6; }
+
+
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 (@line-height-computed / 2);
+}
+
+.-pasta-lead {
+  margin-bottom: @line-height-computed;
+  font-size: floor((@font-size-base * 1.15));
+  font-weight: 300;
+  line-height: 1.4;
+
+  @media (min-width: @screen-sm-min) {
+    font-size: (@font-size-base * 1.5);
+  }
+}
+
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+small,
+.-pasta-small {
+  font-size: floor((100% * @font-size-small / @font-size-base));
+}
+
+mark,
+.-pasta-mark {
+  background-color: @state-warning-bg;
+  padding: .2em;
+}
+
+// Alignment
+.-pasta-text-left           { text-align: left; }
+.-pasta-text-right          { text-align: right; }
+.-pasta-text-center         { text-align: center; }
+.-pasta-text-justify        { text-align: justify; }
+.-pasta-text-nowrap         { white-space: nowrap; }
+
+// Transformation
+.-pasta-text-lowercase      { text-transform: lowercase; }
+.-pasta-text-uppercase      { text-transform: uppercase; }
+.-pasta-text-capitalize     { text-transform: capitalize; }
+
+// Contextual colors
+.-pasta-text-muted {
+  color: @text-muted;
+}
+.-pasta-text-primary {
+  .-pasta-text-emphasis-variant(@brand-primary);
+}
+.-pasta-text-success {
+  .-pasta-text-emphasis-variant(@state-success-text);
+}
+.-pasta-text-info {
+  .-pasta-text-emphasis-variant(@state-info-text);
+}
+.-pasta-text-warning {
+  .-pasta-text-emphasis-variant(@state-warning-text);
+}
+.-pasta-text-danger {
+  .-pasta-text-emphasis-variant(@state-danger-text);
+}
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.-pasta-bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: #fff;
+  .-pasta-bg-variant(@brand-primary);
+}
+.-pasta-bg-success {
+  .-pasta-bg-variant(@state-success-bg);
+}
+.-pasta-bg-info {
+  .-pasta-bg-variant(@state-info-bg);
+}
+.-pasta-bg-warning {
+  .-pasta-bg-variant(@state-warning-bg);
+}
+.-pasta-bg-danger {
+  .-pasta-bg-variant(@state-danger-bg);
+}
+
+
+// Page header
+// -------------------------
+
+.-pasta-page-header {
+  padding-bottom: ((@line-height-computed / 2) - 1);
+  margin: (@line-height-computed * 2) 0 @line-height-computed;
+  border-bottom: 1px solid @page-header-border-color;
+}
+
+
+// Lists
+// -------------------------
+
+// Unordered and Ordered lists
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: (@line-height-computed / 2);
+  ul,
+  ol {
+    margin-bottom: 0;
+  }
+}
+
+// List options
+
+// Unstyled keeps list items block level, just removes default browser padding and list-style
+.-pasta-list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+// Inline turns list items into inline-block
+.-pasta-list-inline {
+  .-pasta-list-unstyled();
+  margin-left: -5px;
+
+  > li {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+// Description Lists
+dl {
+  margin-top: 0; // Remove browser default
+  margin-bottom: @line-height-computed;
+}
+dt,
+dd {
+  line-height: @line-height-base;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0; // Undo browser default
+}
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+.-pasta-dl-horizontal {
+  dd {
+    &:extend(.clearfix all); // Clear the floated `dt` if an empty `dd` is present
+  }
+
+  @media (min-width: @dl-horizontal-breakpoint) {
+    dt {
+      float: left;
+      width: (@dl-horizontal-offset - 20);
+      clear: left;
+      text-align: right;
+      .-pasta-text-overflow();
+    }
+    dd {
+      margin-left: @dl-horizontal-offset;
+    }
+  }
+}
+
+
+// Misc
+// -------------------------
+
+// Abbreviations and acronyms
+abbr[title],
+// Add data-* attribute to help out our tooltip plugin, per https://github.com/twbs/bootstrap/issues/5257
+abbr[data-original-title] {
+  cursor: help;
+  border-bottom: 1px dotted @abbr-border-color;
+}
+.-pasta-initialism {
+  font-size: 90%;
+  .-pasta-text-uppercase();
+}
+
+// Blockquotes
+blockquote {
+  padding: (@line-height-computed / 2) @line-height-computed;
+  margin: 0 0 @line-height-computed;
+  font-size: @blockquote-font-size;
+  border-left: 5px solid @blockquote-border-color;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .-pasta-small {
+    display: block;
+    font-size: 80%; // back to default font-size
+    line-height: @line-height-base;
+    color: @blockquote-small-color;
+
+    &:before {
+      content: '\2014 \00A0'; // em dash, nbsp
+    }
+  }
+}
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.-pasta-blockquote-reverse,
+blockquote.-pasta-pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  border-right: 5px solid @blockquote-border-color;
+  border-left: 0;
+  text-align: right;
+
+  // Account for citation
+  footer,
+  small,
+  .-pasta-small {
+    &:before { content: ''; }
+    &:after {
+      content: '\00A0 \2014'; // nbsp, em dash
+    }
+  }
+}
+
+// Addresses
+address {
+  margin-bottom: @line-height-computed;
+  font-style: normal;
+  line-height: @line-height-base;
+}

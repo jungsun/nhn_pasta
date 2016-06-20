@@ -1,0 +1,171 @@
+//
+// Input groups
+// --------------------------------------------------
+
+// Base styles
+// -------------------------
+.-pasta-input-group {
+  position: relative; // For dropdowns
+  display: table;
+  border-collapse: separate; // prevent input groups from inheriting border styles from table cells when placed within a table
+
+  // Undo padding and float of grid classes
+  &[class*="-pasta-col-"] {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .-pasta-form-control {
+    // Ensure that the input is always above the *appended* addon button for
+    // proper border colors.
+    position: relative;
+    z-index: 2;
+
+    // IE9 fubars the placeholder attribute in text inputs and the arrows on
+    // select elements in input groups. To fix it, we float the input. Details:
+    // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
+    float: left;
+
+    width: 100%;
+    margin-bottom: 0;
+    
+    &:focus {
+      z-index: 3;
+    }
+  }
+}
+
+// Sizing options
+//
+// Remix the default form control sizing classes into new ones for easier
+// manipulation.
+
+.-pasta-input-group-lg > .-pasta-form-control,
+.-pasta-input-group-lg > .-pasta-input-group-addon,
+.-pasta-input-group-lg > .-pasta-input-group-btn > .-pasta-btn {
+  .-pasta-input-lg();
+}
+.-pasta-input-group-sm > .-pasta-form-control,
+.-pasta-input-group-sm > .-pasta-input-group-addon,
+.-pasta-input-group-sm > .-pasta-input-group-btn > .-pasta-btn {
+  .-pasta-input-sm();
+}
+
+
+// Display as table-cell
+// -------------------------
+.-pasta-input-group-addon,
+.-pasta-input-group-btn,
+.-pasta-input-group .-pasta-form-control {
+  display: table-cell;
+
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+}
+// Addon and addon wrapper for buttons
+.-pasta-input-group-addon,
+.-pasta-input-group-btn {
+  width: 1%;
+  white-space: nowrap;
+  vertical-align: middle; // Match the inputs
+}
+
+// Text input groups
+// -------------------------
+.-pasta-input-group-addon {
+  padding: @padding-base-vertical @padding-base-horizontal;
+  font-size: @font-size-base;
+  font-weight: normal;
+  line-height: 1;
+  color: @input-color;
+  text-align: center;
+  background-color: @input-group-addon-bg;
+  border: 1px solid @input-group-addon-border-color;
+  border-radius: @input-border-radius;
+
+  // Sizing
+  &.-pasta-input-sm {
+    padding: @padding-small-vertical @padding-small-horizontal;
+    font-size: @font-size-small;
+    border-radius: @input-border-radius-small;
+  }
+  &.-pasta-input-lg {
+    padding: @padding-large-vertical @padding-large-horizontal;
+    font-size: @font-size-large;
+    border-radius: @input-border-radius-large;
+  }
+
+  // Nuke default margins from checkboxes and radios to vertically center within.
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 0;
+  }
+}
+
+// Reset rounded corners
+.-pasta-input-group .-pasta-form-control:first-child,
+.-pasta-input-group-addon:first-child,
+.-pasta-input-group-btn:first-child > .-pasta-btn,
+.-pasta-input-group-btn:first-child > .-pasta-btn-group > .-pasta-btn,
+.-pasta-input-group-btn:first-child > .-pasta-dropdown-toggle,
+.-pasta-input-group-btn:last-child > .-pasta-btn:not(:last-child):not(.-pasta-dropdown-toggle),
+.-pasta-input-group-btn:last-child > .-pasta-btn-group:not(:last-child) > .-pasta-btn {
+  .-pasta-border-right-radius(0);
+}
+.-pasta-input-group-addon:first-child {
+  border-right: 0;
+}
+.-pasta-input-group .-pasta-form-control:last-child,
+.-pasta-input-group-addon:last-child,
+.-pasta-input-group-btn:last-child > .-pasta-btn,
+.-pasta-input-group-btn:last-child > .-pasta-btn-group > .-pasta-btn,
+.-pasta-input-group-btn:last-child > .-pasta-dropdown-toggle,
+.-pasta-input-group-btn:first-child > .-pasta-btn:not(:first-child),
+.-pasta-input-group-btn:first-child > .-pasta-btn-group:not(:first-child) > .-pasta-btn {
+  .-pasta-border-left-radius(0);
+}
+.-pasta-input-group-addon:last-child {
+  border-left: 0;
+}
+
+// Button input groups
+// -------------------------
+.-pasta-input-group-btn {
+  position: relative;
+  // Jankily prevent input button groups from wrapping with `white-space` and
+  // `font-size` in combination with `inline-block` on buttons.
+  font-size: 0;
+  white-space: nowrap;
+
+  // Negative margin for spacing, position for bringing hovered/focused/actived
+  // element above the siblings.
+  > .-pasta-btn {
+    position: relative;
+    + .-pasta-btn {
+      margin-left: -1px;
+    }
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active {
+      z-index: 2;
+    }
+  }
+
+  // Negative margin to only have a 1px border between the two
+  &:first-child {
+    > .-pasta-btn,
+    > .-pasta-btn-group {
+      margin-right: -1px;
+    }
+  }
+  &:last-child {
+    > .-pasta-btn,
+    > .-pasta-btn-group {
+      z-index: 2;
+      margin-left: -1px;
+    }
+  }
+}

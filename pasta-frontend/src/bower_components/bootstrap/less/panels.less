@@ -1,0 +1,271 @@
+//
+// Panels
+// --------------------------------------------------
+
+
+// Base class
+.-pasta-panel {
+  margin-bottom: @line-height-computed;
+  background-color: @panel-bg;
+  border: 1px solid transparent;
+  border-radius: @panel-border-radius;
+  .-pasta-box-shadow(0 1px 1px rgba(0,0,0,.05));
+}
+
+// Panel contents
+.-pasta-panel-body {
+  padding: @panel-body-padding;
+  &:extend(.clearfix all);
+}
+
+// Optional heading
+.-pasta-panel-heading {
+  padding: @panel-heading-padding;
+  border-bottom: 1px solid transparent;
+  .-pasta-border-top-radius((@panel-border-radius - 1));
+
+  > .-pasta-dropdown .-pasta-dropdown-toggle {
+    color: inherit;
+  }
+}
+
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.-pasta-panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: ceil((@font-size-base * 1.125));
+  color: inherit;
+
+  > a,
+  > small,
+  > .-pasta-small,
+  > small > a,
+  > .-pasta-small > a {
+    color: inherit;
+  }
+}
+
+// Optional footer (stays gray in every modifier class)
+.-pasta-panel-footer {
+  padding: @panel-footer-padding;
+  background-color: @panel-footer-bg;
+  border-top: 1px solid @panel-inner-border;
+  .-pasta-border-bottom-radius((@panel-border-radius - 1));
+}
+
+
+// List groups in panels
+//
+// By default, space out list group content from panel headings to account for
+// any kind of custom content between the two.
+
+.-pasta-panel {
+  > .-pasta-list-group,
+  > .-pasta-panel-collapse > .-pasta-list-group {
+    margin-bottom: 0;
+
+    .-pasta-list-group-item {
+      border-width: 1px 0;
+      border-radius: 0;
+    }
+
+    // Add border top radius for first one
+    &:first-child {
+      .-pasta-list-group-item:first-child {
+        border-top: 0;
+        .-pasta-border-top-radius((@panel-border-radius - 1));
+      }
+    }
+
+    // Add border bottom radius for last one
+    &:last-child {
+      .-pasta-list-group-item:last-child {
+        border-bottom: 0;
+        .-pasta-border-bottom-radius((@panel-border-radius - 1));
+      }
+    }
+  }
+  > .-pasta-panel-heading + .-pasta-panel-collapse > .-pasta-list-group {
+    .-pasta-list-group-item:first-child {
+      .-pasta-border-top-radius(0);
+    }
+  }
+}
+// Collapse space between when there's no additional content.
+.-pasta-panel-heading + .-pasta-list-group {
+  .-pasta-list-group-item:first-child {
+    border-top-width: 0;
+  }
+}
+.-pasta-list-group + .-pasta-panel-footer {
+  border-top-width: 0;
+}
+
+// Tables in panels
+//
+// Place a non-bordered `.table` within a panel (not within a `.panel-body`) and
+// watch it go full width.
+
+.-pasta-panel {
+  > .-pasta-table,
+  > .-pasta-table-responsive > .-pasta-table,
+  > .-pasta-panel-collapse > .-pasta-table {
+    margin-bottom: 0;
+
+    caption {
+      padding-left: @panel-body-padding;
+      padding-right: @panel-body-padding;
+    }
+  }
+  // Add border top radius for first one
+  > .-pasta-table:first-child,
+  > .-pasta-table-responsive:first-child > .-pasta-table:first-child {
+    .-pasta-border-top-radius((@panel-border-radius - 1));
+
+    > thead:first-child,
+    > tbody:first-child {
+      > tr:first-child {
+        border-top-left-radius: (@panel-border-radius - 1);
+        border-top-right-radius: (@panel-border-radius - 1);
+
+        td:first-child,
+        th:first-child {
+          border-top-left-radius: (@panel-border-radius - 1);
+        }
+        td:last-child,
+        th:last-child {
+          border-top-right-radius: (@panel-border-radius - 1);
+        }
+      }
+    }
+  }
+  // Add border bottom radius for last one
+  > .-pasta-table:last-child,
+  > .-pasta-table-responsive:last-child > .-pasta-table:last-child {
+    .-pasta-border-bottom-radius((@panel-border-radius - 1));
+
+    > tbody:last-child,
+    > tfoot:last-child {
+      > tr:last-child {
+        border-bottom-left-radius: (@panel-border-radius - 1);
+        border-bottom-right-radius: (@panel-border-radius - 1);
+
+        td:first-child,
+        th:first-child {
+          border-bottom-left-radius: (@panel-border-radius - 1);
+        }
+        td:last-child,
+        th:last-child {
+          border-bottom-right-radius: (@panel-border-radius - 1);
+        }
+      }
+    }
+  }
+  > .-pasta-panel-body + .-pasta-table,
+  > .-pasta-panel-body + .-pasta-table-responsive,
+  > .-pasta-table + .-pasta-panel-body,
+  > .-pasta-table-responsive + .-pasta-panel-body {
+    border-top: 1px solid @table-border-color;
+  }
+  > .-pasta-table > tbody:first-child > tr:first-child th,
+  > .-pasta-table > tbody:first-child > tr:first-child td {
+    border-top: 0;
+  }
+  > .-pasta-table-bordered,
+  > .-pasta-table-responsive > .-pasta-table-bordered {
+    border: 0;
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th:first-child,
+        > td:first-child {
+          border-left: 0;
+        }
+        > th:last-child,
+        > td:last-child {
+          border-right: 0;
+        }
+      }
+    }
+    > thead,
+    > tbody {
+      > tr:first-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+    > tbody,
+    > tfoot {
+      > tr:last-child {
+        > td,
+        > th {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  > .-pasta-table-responsive {
+    border: 0;
+    margin-bottom: 0;
+  }
+}
+
+
+// Collapsable panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+
+.-pasta-panel-group {
+  margin-bottom: @line-height-computed;
+
+  // Tighten up margin so it's only between panels
+  .-pasta-panel {
+    margin-bottom: 0;
+    border-radius: @panel-border-radius;
+
+    + .-pasta-panel {
+      margin-top: 5px;
+    }
+  }
+
+  .-pasta-panel-heading {
+    border-bottom: 0;
+
+    + .-pasta-panel-collapse > .-pasta-panel-body,
+    + .-pasta-panel-collapse > .-pasta-list-group {
+      border-top: 1px solid @panel-inner-border;
+    }
+  }
+
+  .-pasta-panel-footer {
+    border-top: 0;
+    + .-pasta-panel-collapse .-pasta-panel-body {
+      border-bottom: 1px solid @panel-inner-border;
+    }
+  }
+}
+
+
+// Contextual variations
+.-pasta-panel-default {
+  .-pasta-panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+}
+.-pasta-panel-primary {
+  .-pasta-panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+.-pasta-panel-success {
+  .-pasta-panel-variant(@panel-success-border; @panel-success-text; @panel-success-heading-bg; @panel-success-border);
+}
+.-pasta-panel-info {
+  .-pasta-panel-variant(@panel-info-border; @panel-info-text; @panel-info-heading-bg; @panel-info-border);
+}
+.-pasta-panel-warning {
+  .-pasta-panel-variant(@panel-warning-border; @panel-warning-text; @panel-warning-heading-bg; @panel-warning-border);
+}
+.-pasta-panel-danger {
+  .-pasta-panel-variant(@panel-danger-border; @panel-danger-text; @panel-danger-heading-bg; @panel-danger-border);
+}

@@ -1,0 +1,10 @@
+// Progress bars
+
+.-pasta-progress-bar-variant(@color) {
+  background-color: @color;
+
+  // Deprecated parent class requirement as of v3.2.0
+  .-pasta-progress-striped & {
+    #gradient > .-pasta-striped();
+  }
+}

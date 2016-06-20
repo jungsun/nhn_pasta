@@ -1,0 +1,194 @@
+//
+// Responsive: Utility classes
+// --------------------------------------------------
+
+
+// IE10 in Windows (Phone) 8
+//
+// Support for responsive views via media queries is kind of borked in IE10, for
+// Surface/desktop in split view and for Windows Phone 8. This particular fix
+// must be accompanied by a snippet of JavaScript to sniff the user agent and
+// apply some conditional CSS to *only* the Surface/desktop Windows 8. Look at
+// our Getting Started page for more information on this bug.
+//
+// For more information, see the following:
+//
+// Issue: https://github.com/twbs/bootstrap/issues/10497
+// Docs: http://getbootstrap.com/getting-started/#support-ie10-width
+// Source: http://timkadlec.com/2013/01/windows-phone-8-and-device-width/
+// Source: http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+
+@-ms-viewport {
+  width: device-width;
+}
+
+
+// Visibility utilities
+// Note: Deprecated .visible-xs, .visible-sm, .visible-md, and .visible-lg as of v3.2.0
+.-pasta-visible-xs,
+.-pasta-visible-sm,
+.-pasta-visible-md,
+.-pasta-visible-lg {
+  .-pasta-responsive-invisibility();
+}
+
+.-pasta-visible-xs-block,
+.-pasta-visible-xs-inline,
+.-pasta-visible-xs-inline-block,
+.-pasta-visible-sm-block,
+.-pasta-visible-sm-inline,
+.-pasta-visible-sm-inline-block,
+.-pasta-visible-md-block,
+.-pasta-visible-md-inline,
+.-pasta-visible-md-inline-block,
+.-pasta-visible-lg-block,
+.-pasta-visible-lg-inline,
+.-pasta-visible-lg-inline-block {
+  display: none !important;
+}
+
+.-pasta-visible-xs {
+  @media (max-width: @screen-xs-max) {
+    .-pasta-responsive-visibility();
+  }
+}
+.-pasta-visible-xs-block {
+  @media (max-width: @screen-xs-max) {
+    display: block !important;
+  }
+}
+.-pasta-visible-xs-inline {
+  @media (max-width: @screen-xs-max) {
+    display: inline !important;
+  }
+}
+.-pasta-visible-xs-inline-block {
+  @media (max-width: @screen-xs-max) {
+    display: inline-block !important;
+  }
+}
+
+.-pasta-visible-sm {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .-pasta-responsive-visibility();
+  }
+}
+.-pasta-visible-sm-block {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    display: block !important;
+  }
+}
+.-pasta-visible-sm-inline {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    display: inline !important;
+  }
+}
+.-pasta-visible-sm-inline-block {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    display: inline-block !important;
+  }
+}
+
+.-pasta-visible-md {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .-pasta-responsive-visibility();
+  }
+}
+.-pasta-visible-md-block {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    display: block !important;
+  }
+}
+.-pasta-visible-md-inline {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    display: inline !important;
+  }
+}
+.-pasta-visible-md-inline-block {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    display: inline-block !important;
+  }
+}
+
+.-pasta-visible-lg {
+  @media (min-width: @screen-lg-min) {
+    .-pasta-responsive-visibility();
+  }
+}
+.-pasta-visible-lg-block {
+  @media (min-width: @screen-lg-min) {
+    display: block !important;
+  }
+}
+.-pasta-visible-lg-inline {
+  @media (min-width: @screen-lg-min) {
+    display: inline !important;
+  }
+}
+.-pasta-visible-lg-inline-block {
+  @media (min-width: @screen-lg-min) {
+    display: inline-block !important;
+  }
+}
+
+.-pasta-hidden-xs {
+  @media (max-width: @screen-xs-max) {
+    .-pasta-responsive-invisibility();
+  }
+}
+.-pasta-hidden-sm {
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .-pasta-responsive-invisibility();
+  }
+}
+.-pasta-hidden-md {
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .-pasta-responsive-invisibility();
+  }
+}
+.-pasta-hidden-lg {
+  @media (min-width: @screen-lg-min) {
+    .-pasta-responsive-invisibility();
+  }
+}
+
+
+// Print utilities
+//
+// Media queries are placed on the inside to be mixin-friendly.
+
+// Note: Deprecated .visible-print as of v3.2.0
+.-pasta-visible-print {
+  .-pasta-responsive-invisibility();
+
+  @media print {
+    .-pasta-responsive-visibility();
+  }
+}
+.-pasta-visible-print-block {
+  display: none !important;
+
+  @media print {
+    display: block !important;
+  }
+}
+.-pasta-visible-print-inline {
+  display: none !important;
+
+  @media print {
+    display: inline !important;
+  }
+}
+.-pasta-visible-print-inline-block {
+  display: none !important;
+
+  @media print {
+    display: inline-block !important;
+  }
+}
+
+.-pasta-hidden-print {
+  @media print {
+    .-pasta-responsive-invisibility();
+  }
+}
