@@ -1,0 +1,25 @@
+// Bordered & Pulled
+// -------------------------
+
+.-pasta-@{fa-css-prefix}-border {
+  padding: .2em .25em .15em;
+  border: solid .08em @fa-border-color;
+  border-radius: .1em;
+}
+
+.-pasta-@{fa-css-prefix}-pull-left { float: left; }
+.-pasta-@{fa-css-prefix}-pull-right { float: right; }
+
+.-pasta-@{fa-css-prefix} {
+  &.-pasta-@{fa-css-prefix}-pull-left { margin-right: .3em; }
+  &.-pasta-@{fa-css-prefix}-pull-right { margin-left: .3em; }
+}
+
+/* Deprecated as of 4.4.0 */
+.-pasta-pull-right { float: right; }
+.-pasta-pull-left { float: left; }
+
+.-pasta-@{fa-css-prefix} {
+  &.-pasta-pull-left { margin-right: .3em; }
+  &.-pasta-pull-right { margin-left: .3em; }
+}

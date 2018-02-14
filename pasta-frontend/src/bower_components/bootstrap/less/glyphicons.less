@@ -1,0 +1,305 @@
+//
+// Glyphicons for Bootstrap
+//
+// Since icons are fonts, they can be placed anywhere text is placed and are
+// thus automatically sized to match the surrounding child. To use, create an
+// inline element with the appropriate classes, like so:
+//
+// <a href="#"><span class="glyphicon glyphicon-star"></span> Star</a>
+
+// Import the fonts
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('@{icon-font-path}@{icon-font-name}.eot');
+  src: url('@{icon-font-path}@{icon-font-name}.eot?#iefix') format('embedded-opentype'),
+       url('@{icon-font-path}@{icon-font-name}.woff2') format('woff2'),
+       url('@{icon-font-path}@{icon-font-name}.woff') format('woff'),
+       url('@{icon-font-path}@{icon-font-name}.ttf') format('truetype'),
+       url('@{icon-font-path}@{icon-font-name}.svg#@{icon-font-svg-id}') format('svg');
+}
+
+// Catchall baseclass
+.-pasta-glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Individual icons
+.-pasta-glyphicon-asterisk               { &:before { content: "\002a"; } }
+.-pasta-glyphicon-plus                   { &:before { content: "\002b"; } }
+.-pasta-glyphicon-euro,
+.-pasta-glyphicon-eur                    { &:before { content: "\20ac"; } }
+.-pasta-glyphicon-minus                  { &:before { content: "\2212"; } }
+.-pasta-glyphicon-cloud                  { &:before { content: "\2601"; } }
+.-pasta-glyphicon-envelope               { &:before { content: "\2709"; } }
+.-pasta-glyphicon-pencil                 { &:before { content: "\270f"; } }
+.-pasta-glyphicon-glass                  { &:before { content: "\e001"; } }
+.-pasta-glyphicon-music                  { &:before { content: "\e002"; } }
+.-pasta-glyphicon-search                 { &:before { content: "\e003"; } }
+.-pasta-glyphicon-heart                  { &:before { content: "\e005"; } }
+.-pasta-glyphicon-star                   { &:before { content: "\e006"; } }
+.-pasta-glyphicon-star-empty             { &:before { content: "\e007"; } }
+.-pasta-glyphicon-user                   { &:before { content: "\e008"; } }
+.-pasta-glyphicon-film                   { &:before { content: "\e009"; } }
+.-pasta-glyphicon-th-large               { &:before { content: "\e010"; } }
+.-pasta-glyphicon-th                     { &:before { content: "\e011"; } }
+.-pasta-glyphicon-th-list                { &:before { content: "\e012"; } }
+.-pasta-glyphicon-ok                     { &:before { content: "\e013"; } }
+.-pasta-glyphicon-remove                 { &:before { content: "\e014"; } }
+.-pasta-glyphicon-zoom-in                { &:before { content: "\e015"; } }
+.-pasta-glyphicon-zoom-out               { &:before { content: "\e016"; } }
+.-pasta-glyphicon-off                    { &:before { content: "\e017"; } }
+.-pasta-glyphicon-signal                 { &:before { content: "\e018"; } }
+.-pasta-glyphicon-cog                    { &:before { content: "\e019"; } }
+.-pasta-glyphicon-trash                  { &:before { content: "\e020"; } }
+.-pasta-glyphicon-home                   { &:before { content: "\e021"; } }
+.-pasta-glyphicon-file                   { &:before { content: "\e022"; } }
+.-pasta-glyphicon-time                   { &:before { content: "\e023"; } }
+.-pasta-glyphicon-road                   { &:before { content: "\e024"; } }
+.-pasta-glyphicon-download-alt           { &:before { content: "\e025"; } }
+.-pasta-glyphicon-download               { &:before { content: "\e026"; } }
+.-pasta-glyphicon-upload                 { &:before { content: "\e027"; } }
+.-pasta-glyphicon-inbox                  { &:before { content: "\e028"; } }
+.-pasta-glyphicon-play-circle            { &:before { content: "\e029"; } }
+.-pasta-glyphicon-repeat                 { &:before { content: "\e030"; } }
+.-pasta-glyphicon-refresh                { &:before { content: "\e031"; } }
+.-pasta-glyphicon-list-alt               { &:before { content: "\e032"; } }
+.-pasta-glyphicon-lock                   { &:before { content: "\e033"; } }
+.-pasta-glyphicon-flag                   { &:before { content: "\e034"; } }
+.-pasta-glyphicon-headphones             { &:before { content: "\e035"; } }
+.-pasta-glyphicon-volume-off             { &:before { content: "\e036"; } }
+.-pasta-glyphicon-volume-down            { &:before { content: "\e037"; } }
+.-pasta-glyphicon-volume-up              { &:before { content: "\e038"; } }
+.-pasta-glyphicon-qrcode                 { &:before { content: "\e039"; } }
+.-pasta-glyphicon-barcode                { &:before { content: "\e040"; } }
+.-pasta-glyphicon-tag                    { &:before { content: "\e041"; } }
+.-pasta-glyphicon-tags                   { &:before { content: "\e042"; } }
+.-pasta-glyphicon-book                   { &:before { content: "\e043"; } }
+.-pasta-glyphicon-bookmark               { &:before { content: "\e044"; } }
+.-pasta-glyphicon-print                  { &:before { content: "\e045"; } }
+.-pasta-glyphicon-camera                 { &:before { content: "\e046"; } }
+.-pasta-glyphicon-font                   { &:before { content: "\e047"; } }
+.-pasta-glyphicon-bold                   { &:before { content: "\e048"; } }
+.-pasta-glyphicon-italic                 { &:before { content: "\e049"; } }
+.-pasta-glyphicon-text-height            { &:before { content: "\e050"; } }
+.-pasta-glyphicon-text-width             { &:before { content: "\e051"; } }
+.-pasta-glyphicon-align-left             { &:before { content: "\e052"; } }
+.-pasta-glyphicon-align-center           { &:before { content: "\e053"; } }
+.-pasta-glyphicon-align-right            { &:before { content: "\e054"; } }
+.-pasta-glyphicon-align-justify          { &:before { content: "\e055"; } }
+.-pasta-glyphicon-list                   { &:before { content: "\e056"; } }
+.-pasta-glyphicon-indent-left            { &:before { content: "\e057"; } }
+.-pasta-glyphicon-indent-right           { &:before { content: "\e058"; } }
+.-pasta-glyphicon-facetime-video         { &:before { content: "\e059"; } }
+.-pasta-glyphicon-picture                { &:before { content: "\e060"; } }
+.-pasta-glyphicon-map-marker             { &:before { content: "\e062"; } }
+.-pasta-glyphicon-adjust                 { &:before { content: "\e063"; } }
+.-pasta-glyphicon-tint                   { &:before { content: "\e064"; } }
+.-pasta-glyphicon-edit                   { &:before { content: "\e065"; } }
+.-pasta-glyphicon-share                  { &:before { content: "\e066"; } }
+.-pasta-glyphicon-check                  { &:before { content: "\e067"; } }
+.-pasta-glyphicon-move                   { &:before { content: "\e068"; } }
+.-pasta-glyphicon-step-backward          { &:before { content: "\e069"; } }
+.-pasta-glyphicon-fast-backward          { &:before { content: "\e070"; } }
+.-pasta-glyphicon-backward               { &:before { content: "\e071"; } }
+.-pasta-glyphicon-play                   { &:before { content: "\e072"; } }
+.-pasta-glyphicon-pause                  { &:before { content: "\e073"; } }
+.-pasta-glyphicon-stop                   { &:before { content: "\e074"; } }
+.-pasta-glyphicon-forward                { &:before { content: "\e075"; } }
+.-pasta-glyphicon-fast-forward           { &:before { content: "\e076"; } }
+.-pasta-glyphicon-step-forward           { &:before { content: "\e077"; } }
+.-pasta-glyphicon-eject                  { &:before { content: "\e078"; } }
+.-pasta-glyphicon-chevron-left           { &:before { content: "\e079"; } }
+.-pasta-glyphicon-chevron-right          { &:before { content: "\e080"; } }
+.-pasta-glyphicon-plus-sign              { &:before { content: "\e081"; } }
+.-pasta-glyphicon-minus-sign             { &:before { content: "\e082"; } }
+.-pasta-glyphicon-remove-sign            { &:before { content: "\e083"; } }
+.-pasta-glyphicon-ok-sign                { &:before { content: "\e084"; } }
+.-pasta-glyphicon-question-sign          { &:before { content: "\e085"; } }
+.-pasta-glyphicon-info-sign              { &:before { content: "\e086"; } }
+.-pasta-glyphicon-screenshot             { &:before { content: "\e087"; } }
+.-pasta-glyphicon-remove-circle          { &:before { content: "\e088"; } }
+.-pasta-glyphicon-ok-circle              { &:before { content: "\e089"; } }
+.-pasta-glyphicon-ban-circle             { &:before { content: "\e090"; } }
+.-pasta-glyphicon-arrow-left             { &:before { content: "\e091"; } }
+.-pasta-glyphicon-arrow-right            { &:before { content: "\e092"; } }
+.-pasta-glyphicon-arrow-up               { &:before { content: "\e093"; } }
+.-pasta-glyphicon-arrow-down             { &:before { content: "\e094"; } }
+.-pasta-glyphicon-share-alt              { &:before { content: "\e095"; } }
+.-pasta-glyphicon-resize-full            { &:before { content: "\e096"; } }
+.-pasta-glyphicon-resize-small           { &:before { content: "\e097"; } }
+.-pasta-glyphicon-exclamation-sign       { &:before { content: "\e101"; } }
+.-pasta-glyphicon-gift                   { &:before { content: "\e102"; } }
+.-pasta-glyphicon-leaf                   { &:before { content: "\e103"; } }
+.-pasta-glyphicon-fire                   { &:before { content: "\e104"; } }
+.-pasta-glyphicon-eye-open               { &:before { content: "\e105"; } }
+.-pasta-glyphicon-eye-close              { &:before { content: "\e106"; } }
+.-pasta-glyphicon-warning-sign           { &:before { content: "\e107"; } }
+.-pasta-glyphicon-plane                  { &:before { content: "\e108"; } }
+.-pasta-glyphicon-calendar               { &:before { content: "\e109"; } }
+.-pasta-glyphicon-random                 { &:before { content: "\e110"; } }
+.-pasta-glyphicon-comment                { &:before { content: "\e111"; } }
+.-pasta-glyphicon-magnet                 { &:before { content: "\e112"; } }
+.-pasta-glyphicon-chevron-up             { &:before { content: "\e113"; } }
+.-pasta-glyphicon-chevron-down           { &:before { content: "\e114"; } }
+.-pasta-glyphicon-retweet                { &:before { content: "\e115"; } }
+.-pasta-glyphicon-shopping-cart          { &:before { content: "\e116"; } }
+.-pasta-glyphicon-folder-close           { &:before { content: "\e117"; } }
+.-pasta-glyphicon-folder-open            { &:before { content: "\e118"; } }
+.-pasta-glyphicon-resize-vertical        { &:before { content: "\e119"; } }
+.-pasta-glyphicon-resize-horizontal      { &:before { content: "\e120"; } }
+.-pasta-glyphicon-hdd                    { &:before { content: "\e121"; } }
+.-pasta-glyphicon-bullhorn               { &:before { content: "\e122"; } }
+.-pasta-glyphicon-bell                   { &:before { content: "\e123"; } }
+.-pasta-glyphicon-certificate            { &:before { content: "\e124"; } }
+.-pasta-glyphicon-thumbs-up              { &:before { content: "\e125"; } }
+.-pasta-glyphicon-thumbs-down            { &:before { content: "\e126"; } }
+.-pasta-glyphicon-hand-right             { &:before { content: "\e127"; } }
+.-pasta-glyphicon-hand-left              { &:before { content: "\e128"; } }
+.-pasta-glyphicon-hand-up                { &:before { content: "\e129"; } }
+.-pasta-glyphicon-hand-down              { &:before { content: "\e130"; } }
+.-pasta-glyphicon-circle-arrow-right     { &:before { content: "\e131"; } }
+.-pasta-glyphicon-circle-arrow-left      { &:before { content: "\e132"; } }
+.-pasta-glyphicon-circle-arrow-up        { &:before { content: "\e133"; } }
+.-pasta-glyphicon-circle-arrow-down      { &:before { content: "\e134"; } }
+.-pasta-glyphicon-globe                  { &:before { content: "\e135"; } }
+.-pasta-glyphicon-wrench                 { &:before { content: "\e136"; } }
+.-pasta-glyphicon-tasks                  { &:before { content: "\e137"; } }
+.-pasta-glyphicon-filter                 { &:before { content: "\e138"; } }
+.-pasta-glyphicon-briefcase              { &:before { content: "\e139"; } }
+.-pasta-glyphicon-fullscreen             { &:before { content: "\e140"; } }
+.-pasta-glyphicon-dashboard              { &:before { content: "\e141"; } }
+.-pasta-glyphicon-paperclip              { &:before { content: "\e142"; } }
+.-pasta-glyphicon-heart-empty            { &:before { content: "\e143"; } }
+.-pasta-glyphicon-link                   { &:before { content: "\e144"; } }
+.-pasta-glyphicon-phone                  { &:before { content: "\e145"; } }
+.-pasta-glyphicon-pushpin                { &:before { content: "\e146"; } }
+.-pasta-glyphicon-usd                    { &:before { content: "\e148"; } }
+.-pasta-glyphicon-gbp                    { &:before { content: "\e149"; } }
+.-pasta-glyphicon-sort                   { &:before { content: "\e150"; } }
+.-pasta-glyphicon-sort-by-alphabet       { &:before { content: "\e151"; } }
+.-pasta-glyphicon-sort-by-alphabet-alt   { &:before { content: "\e152"; } }
+.-pasta-glyphicon-sort-by-order          { &:before { content: "\e153"; } }
+.-pasta-glyphicon-sort-by-order-alt      { &:before { content: "\e154"; } }
+.-pasta-glyphicon-sort-by-attributes     { &:before { content: "\e155"; } }
+.-pasta-glyphicon-sort-by-attributes-alt { &:before { content: "\e156"; } }
+.-pasta-glyphicon-unchecked              { &:before { content: "\e157"; } }
+.-pasta-glyphicon-expand                 { &:before { content: "\e158"; } }
+.-pasta-glyphicon-collapse-down          { &:before { content: "\e159"; } }
+.-pasta-glyphicon-collapse-up            { &:before { content: "\e160"; } }
+.-pasta-glyphicon-log-in                 { &:before { content: "\e161"; } }
+.-pasta-glyphicon-flash                  { &:before { content: "\e162"; } }
+.-pasta-glyphicon-log-out                { &:before { content: "\e163"; } }
+.-pasta-glyphicon-new-window             { &:before { content: "\e164"; } }
+.-pasta-glyphicon-record                 { &:before { content: "\e165"; } }
+.-pasta-glyphicon-save                   { &:before { content: "\e166"; } }
+.-pasta-glyphicon-open                   { &:before { content: "\e167"; } }
+.-pasta-glyphicon-saved                  { &:before { content: "\e168"; } }
+.-pasta-glyphicon-import                 { &:before { content: "\e169"; } }
+.-pasta-glyphicon-export                 { &:before { content: "\e170"; } }
+.-pasta-glyphicon-send                   { &:before { content: "\e171"; } }
+.-pasta-glyphicon-floppy-disk            { &:before { content: "\e172"; } }
+.-pasta-glyphicon-floppy-saved           { &:before { content: "\e173"; } }
+.-pasta-glyphicon-floppy-remove          { &:before { content: "\e174"; } }
+.-pasta-glyphicon-floppy-save            { &:before { content: "\e175"; } }
+.-pasta-glyphicon-floppy-open            { &:before { content: "\e176"; } }
+.-pasta-glyphicon-credit-card            { &:before { content: "\e177"; } }
+.-pasta-glyphicon-transfer               { &:before { content: "\e178"; } }
+.-pasta-glyphicon-cutlery                { &:before { content: "\e179"; } }
+.-pasta-glyphicon-header                 { &:before { content: "\e180"; } }
+.-pasta-glyphicon-compressed             { &:before { content: "\e181"; } }
+.-pasta-glyphicon-earphone               { &:before { content: "\e182"; } }
+.-pasta-glyphicon-phone-alt              { &:before { content: "\e183"; } }
+.-pasta-glyphicon-tower                  { &:before { content: "\e184"; } }
+.-pasta-glyphicon-stats                  { &:before { content: "\e185"; } }
+.-pasta-glyphicon-sd-video               { &:before { content: "\e186"; } }
+.-pasta-glyphicon-hd-video               { &:before { content: "\e187"; } }
+.-pasta-glyphicon-subtitles              { &:before { content: "\e188"; } }
+.-pasta-glyphicon-sound-stereo           { &:before { content: "\e189"; } }
+.-pasta-glyphicon-sound-dolby            { &:before { content: "\e190"; } }
+.-pasta-glyphicon-sound-5-1              { &:before { content: "\e191"; } }
+.-pasta-glyphicon-sound-6-1              { &:before { content: "\e192"; } }
+.-pasta-glyphicon-sound-7-1              { &:before { content: "\e193"; } }
+.-pasta-glyphicon-copyright-mark         { &:before { content: "\e194"; } }
+.-pasta-glyphicon-registration-mark      { &:before { content: "\e195"; } }
+.-pasta-glyphicon-cloud-download         { &:before { content: "\e197"; } }
+.-pasta-glyphicon-cloud-upload           { &:before { content: "\e198"; } }
+.-pasta-glyphicon-tree-conifer           { &:before { content: "\e199"; } }
+.-pasta-glyphicon-tree-deciduous         { &:before { content: "\e200"; } }
+.-pasta-glyphicon-cd                     { &:before { content: "\e201"; } }
+.-pasta-glyphicon-save-file              { &:before { content: "\e202"; } }
+.-pasta-glyphicon-open-file              { &:before { content: "\e203"; } }
+.-pasta-glyphicon-level-up               { &:before { content: "\e204"; } }
+.-pasta-glyphicon-copy                   { &:before { content: "\e205"; } }
+.-pasta-glyphicon-paste                  { &:before { content: "\e206"; } }
+// The following 2 Glyphicons are omitted for the time being because
+// they currently use Unicode codepoints that are outside the
+// Basic Multilingual Plane (BMP). Older buggy versions of WebKit can't handle
+// non-BMP codepoints in CSS string escapes, and thus can't display these two icons.
+// Notably, the bug affects some older versions of the Android Browser.
+// More info: https://github.com/twbs/bootstrap/issues/10106
+// .glyphicon-door                   { &:before { content: "\1f6aa"; } }
+// .glyphicon-key                    { &:before { content: "\1f511"; } }
+.-pasta-glyphicon-alert                  { &:before { content: "\e209"; } }
+.-pasta-glyphicon-equalizer              { &:before { content: "\e210"; } }
+.-pasta-glyphicon-king                   { &:before { content: "\e211"; } }
+.-pasta-glyphicon-queen                  { &:before { content: "\e212"; } }
+.-pasta-glyphicon-pawn                   { &:before { content: "\e213"; } }
+.-pasta-glyphicon-bishop                 { &:before { content: "\e214"; } }
+.-pasta-glyphicon-knight                 { &:before { content: "\e215"; } }
+.-pasta-glyphicon-baby-formula           { &:before { content: "\e216"; } }
+.-pasta-glyphicon-tent                   { &:before { content: "\26fa"; } }
+.-pasta-glyphicon-blackboard             { &:before { content: "\e218"; } }
+.-pasta-glyphicon-bed                    { &:before { content: "\e219"; } }
+.-pasta-glyphicon-apple                  { &:before { content: "\f8ff"; } }
+.-pasta-glyphicon-erase                  { &:before { content: "\e221"; } }
+.-pasta-glyphicon-hourglass              { &:before { content: "\231b"; } }
+.-pasta-glyphicon-lamp                   { &:before { content: "\e223"; } }
+.-pasta-glyphicon-duplicate              { &:before { content: "\e224"; } }
+.-pasta-glyphicon-piggy-bank             { &:before { content: "\e225"; } }
+.-pasta-glyphicon-scissors               { &:before { content: "\e226"; } }
+.-pasta-glyphicon-bitcoin                { &:before { content: "\e227"; } }
+.-pasta-glyphicon-btc                    { &:before { content: "\e227"; } }
+.-pasta-glyphicon-xbt                    { &:before { content: "\e227"; } }
+.-pasta-glyphicon-yen                    { &:before { content: "\00a5"; } }
+.-pasta-glyphicon-jpy                    { &:before { content: "\00a5"; } }
+.-pasta-glyphicon-ruble                  { &:before { content: "\20bd"; } }
+.-pasta-glyphicon-rub                    { &:before { content: "\20bd"; } }
+.-pasta-glyphicon-scale                  { &:before { content: "\e230"; } }
+.-pasta-glyphicon-ice-lolly              { &:before { content: "\e231"; } }
+.-pasta-glyphicon-ice-lolly-tasted       { &:before { content: "\e232"; } }
+.-pasta-glyphicon-education              { &:before { content: "\e233"; } }
+.-pasta-glyphicon-option-horizontal      { &:before { content: "\e234"; } }
+.-pasta-glyphicon-option-vertical        { &:before { content: "\e235"; } }
+.-pasta-glyphicon-menu-hamburger         { &:before { content: "\e236"; } }
+.-pasta-glyphicon-modal-window           { &:before { content: "\e237"; } }
+.-pasta-glyphicon-oil                    { &:before { content: "\e238"; } }
+.-pasta-glyphicon-grain                  { &:before { content: "\e239"; } }
+.-pasta-glyphicon-sunglasses             { &:before { content: "\e240"; } }
+.-pasta-glyphicon-text-size              { &:before { content: "\e241"; } }
+.-pasta-glyphicon-text-color             { &:before { content: "\e242"; } }
+.-pasta-glyphicon-text-background        { &:before { content: "\e243"; } }
+.-pasta-glyphicon-object-align-top       { &:before { content: "\e244"; } }
+.-pasta-glyphicon-object-align-bottom    { &:before { content: "\e245"; } }
+.-pasta-glyphicon-object-align-horizontal{ &:before { content: "\e246"; } }
+.-pasta-glyphicon-object-align-left      { &:before { content: "\e247"; } }
+.-pasta-glyphicon-object-align-vertical  { &:before { content: "\e248"; } }
+.-pasta-glyphicon-object-align-right     { &:before { content: "\e249"; } }
+.-pasta-glyphicon-triangle-right         { &:before { content: "\e250"; } }
+.-pasta-glyphicon-triangle-left          { &:before { content: "\e251"; } }
+.-pasta-glyphicon-triangle-bottom        { &:before { content: "\e252"; } }
+.-pasta-glyphicon-triangle-top           { &:before { content: "\e253"; } }
+.-pasta-glyphicon-console                { &:before { content: "\e254"; } }
+.-pasta-glyphicon-superscript            { &:before { content: "\e255"; } }
+.-pasta-glyphicon-subscript              { &:before { content: "\e256"; } }
+.-pasta-glyphicon-menu-left              { &:before { content: "\e257"; } }
+.-pasta-glyphicon-menu-right             { &:before { content: "\e258"; } }
+.-pasta-glyphicon-menu-down              { &:before { content: "\e259"; } }
+.-pasta-glyphicon-menu-up                { &:before { content: "\e260"; } }

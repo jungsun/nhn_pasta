@@ -1,0 +1,91 @@
+// Framework grid generation
+//
+// Used only by Bootstrap to generate the correct number of grid classes given
+// any value of `@grid-columns`.
+
+.-pasta-make-grid-columns() {
+  // Common styles for all sizes of grid columns, widths 1-12
+  .-pasta-col(@index) { // initial
+    @item: ~".-pasta-col-xs-@{index}, .-pasta-col-sm-@{index}, .-pasta-col-md-@{index}, .-pasta-col-lg-@{index}";
+    .-pasta-col((@index + 1), @item);
+  }
+  .-pasta-col(@index, @list) when (@index =< @grid-columns) { // general; "=<" isn't a typo
+    @item: ~".-pasta-col-xs-@{index}, .-pasta-col-sm-@{index}, .-pasta-col-md-@{index}, .-pasta-col-lg-@{index}";
+    .-pasta-col((@index + 1), ~"@{list}, @{item}");
+  }
+  .-pasta-col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      // Inner gutter via padding
+      padding-left:  ceil((@grid-gutter-width / 2));
+      padding-right: floor((@grid-gutter-width / 2));
+    }
+  }
+  .-pasta-col(1); // kickstart it
+}
+
+.-pasta-float-grid-columns(@class) {
+  .-pasta-col(@index) { // initial
+    @item: ~".-pasta-col-@{class}-@{index}";
+    .-pasta-col((@index + 1), @item);
+  }
+  .-pasta-col(@index, @list) when (@index =< @grid-columns) { // general
+    @item: ~".-pasta-col-@{class}-@{index}";
+    .-pasta-col((@index + 1), ~"@{list}, @{item}");
+  }
+  .-pasta-col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: left;
+    }
+  }
+  .-pasta-col(1); // kickstart it
+}
+
+.-pasta-calc-grid-column(@index, @class, @type) when (@type = width) and (@index > 0) {
+  .-pasta-col-@{class}-@{index} {
+    width: percentage((@index / @grid-columns));
+  }
+}
+.-pasta-calc-grid-column(@index, @class, @type) when (@type = push) and (@index > 0) {
+  .-pasta-col-@{class}-push-@{index} {
+    left: percentage((@index / @grid-columns));
+  }
+}
+.-pasta-calc-grid-column(@index, @class, @type) when (@type = push) and (@index = 0) {
+  .-pasta-col-@{class}-push-0 {
+    left: auto;
+  }
+}
+.-pasta-calc-grid-column(@index, @class, @type) when (@type = pull) and (@index > 0) {
+  .-pasta-col-@{class}-pull-@{index} {
+    right: percentage((@index / @grid-columns));
+  }
+}
+.-pasta-calc-grid-column(@index, @class, @type) when (@type = pull) and (@index = 0) {
+  .-pasta-col-@{class}-pull-0 {
+    right: auto;
+  }
+}
+.-pasta-calc-grid-column(@index, @class, @type) when (@type = offset) {
+  .-pasta-col-@{class}-offset-@{index} {
+    margin-left: percentage((@index / @grid-columns));
+  }
+}
+
+// Basic looping in LESS
+.-pasta-loop-grid-columns(@index, @class, @type) when (@index >= 0) {
+  .-pasta-calc-grid-column(@index, @class, @type);
+  // next iteration
+  .-pasta-loop-grid-columns((@index - 1), @class, @type);
+}
+
+// Create grid for specific class
+.-pasta-make-grid(@class) {
+  .-pasta-float-grid-columns(@class);
+  .-pasta-loop-grid-columns(@grid-columns, @class, width);
+  .-pasta-loop-grid-columns(@grid-columns, @class, pull);
+  .-pasta-loop-grid-columns(@grid-columns, @class, push);
+  .-pasta-loop-grid-columns(@grid-columns, @class, offset);
+}

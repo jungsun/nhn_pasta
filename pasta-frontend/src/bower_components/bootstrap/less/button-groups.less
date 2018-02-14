@@ -1,0 +1,244 @@
+//
+// Button groups
+// --------------------------------------------------
+
+// Make the div behave like a button
+.-pasta-btn-group,
+.-pasta-btn-group-vertical {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle; // match .btn alignment given font-size hack above
+  > .-pasta-btn {
+    position: relative;
+    float: left;
+    // Bring the "active" button to the front
+    &:hover,
+    &:focus,
+    &:active,
+    &.-pasta-active {
+      z-index: 2;
+    }
+  }
+}
+
+// Prevent double borders when buttons are next to each other
+.-pasta-btn-group {
+  .-pasta-btn + .-pasta-btn,
+  .-pasta-btn + .-pasta-btn-group,
+  .-pasta-btn-group + .-pasta-btn,
+  .-pasta-btn-group + .-pasta-btn-group {
+    margin-left: -1px;
+  }
+}
+
+// Optional: Group multiple button groups together for a toolbar
+.-pasta-btn-toolbar {
+  margin-left: -5px; // Offset the first child's margin
+  &:extend(.clearfix all);
+
+  .-pasta-btn,
+  .-pasta-btn-group,
+  .-pasta-input-group {
+    float: left;
+  }
+  > .-pasta-btn,
+  > .-pasta-btn-group,
+  > .-pasta-input-group {
+    margin-left: 5px;
+  }
+}
+
+.-pasta-btn-group > .-pasta-btn:not(:first-child):not(:last-child):not(.-pasta-dropdown-toggle) {
+  border-radius: 0;
+}
+
+// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
+.-pasta-btn-group > .-pasta-btn:first-child {
+  margin-left: 0;
+  &:not(:last-child):not(.-pasta-dropdown-toggle) {
+    .-pasta-border-right-radius(0);
+  }
+}
+// Need .-pasta-dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+.-pasta-btn-group > .-pasta-btn:last-child:not(:first-child),
+.-pasta-btn-group > .-pasta-dropdown-toggle:not(:first-child) {
+  .-pasta-border-left-radius(0);
+}
+
+// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
+.-pasta-btn-group > .-pasta-btn-group {
+  float: left;
+}
+.-pasta-btn-group > .-pasta-btn-group:not(:first-child):not(:last-child) > .-pasta-btn {
+  border-radius: 0;
+}
+.-pasta-btn-group > .-pasta-btn-group:first-child:not(:last-child) {
+  > .-pasta-btn:last-child,
+  > .-pasta-dropdown-toggle {
+    .-pasta-border-right-radius(0);
+  }
+}
+.-pasta-btn-group > .-pasta-btn-group:last-child:not(:first-child) > .-pasta-btn:first-child {
+  .-pasta-border-left-radius(0);
+}
+
+// On active and open, don't show outline
+.-pasta-btn-group .-pasta-dropdown-toggle:active,
+.-pasta-btn-group.-pasta-open .-pasta-dropdown-toggle {
+  outline: 0;
+}
+
+
+// Sizing
+//
+// Remix the default button sizing classes into new ones for easier manipulation.
+
+.-pasta-btn-group-xs > .-pasta-btn { &:extend(.-pasta-btn-xs); }
+.-pasta-btn-group-sm > .-pasta-btn { &:extend(.-pasta-btn-sm); }
+.-pasta-btn-group-lg > .-pasta-btn { &:extend(.-pasta-btn-lg); }
+
+
+// Split button dropdowns
+// ----------------------
+
+// Give the line between buttons some depth
+.-pasta-btn-group > .-pasta-btn + .-pasta-dropdown-toggle {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.-pasta-btn-group > .-pasta-btn-lg + .-pasta-dropdown-toggle {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+// The clickable button for toggling the menu
+// Remove the gradient and set the same inset shadow as the :active state
+.-pasta-btn-group.-pasta-open .-pasta-dropdown-toggle {
+  .-pasta-box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+
+  // Show no shadow for `.btn-link` since it has no other button styles.
+  &.-pasta-btn-link {
+    .-pasta-box-shadow(none);
+  }
+}
+
+
+// Reposition the caret
+.-pasta-btn .-pasta-caret {
+  margin-left: 0;
+}
+// Carets in other button sizes
+.-pasta-btn-lg .-pasta-caret {
+  border-width: @caret-width-large @caret-width-large 0;
+  border-bottom-width: 0;
+}
+// Upside down carets for .dropup
+.-pasta-dropup .-pasta-btn-lg .-pasta-caret {
+  border-width: 0 @caret-width-large @caret-width-large;
+}
+
+
+// Vertical button groups
+// ----------------------
+
+.-pasta-btn-group-vertical {
+  > .-pasta-btn,
+  > .-pasta-btn-group,
+  > .-pasta-btn-group > .-pasta-btn {
+    display: block;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  // Clear floats so dropdown menus can be properly placed
+  > .-pasta-btn-group {
+    &:extend(.clearfix all);
+    > .-pasta-btn {
+      float: none;
+    }
+  }
+
+  > .-pasta-btn + .-pasta-btn,
+  > .-pasta-btn + .-pasta-btn-group,
+  > .-pasta-btn-group + .-pasta-btn,
+  > .-pasta-btn-group + .-pasta-btn-group {
+    margin-top: -1px;
+    margin-left: 0;
+  }
+}
+
+.-pasta-btn-group-vertical > .-pasta-btn {
+  &:not(:first-child):not(:last-child) {
+    border-radius: 0;
+  }
+  &:first-child:not(:last-child) {
+    .-pasta-border-top-radius(@btn-border-radius-base);
+    .-pasta-border-bottom-radius(0);
+  }
+  &:last-child:not(:first-child) {
+    .-pasta-border-top-radius(0);
+    .-pasta-border-bottom-radius(@btn-border-radius-base);
+  }
+}
+.-pasta-btn-group-vertical > .-pasta-btn-group:not(:first-child):not(:last-child) > .-pasta-btn {
+  border-radius: 0;
+}
+.-pasta-btn-group-vertical > .-pasta-btn-group:first-child:not(:last-child) {
+  > .-pasta-btn:last-child,
+  > .-pasta-dropdown-toggle {
+    .-pasta-border-bottom-radius(0);
+  }
+}
+.-pasta-btn-group-vertical > .-pasta-btn-group:last-child:not(:first-child) > .-pasta-btn:first-child {
+  .-pasta-border-top-radius(0);
+}
+
+
+// Justified button groups
+// ----------------------
+
+.-pasta-btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  > .-pasta-btn,
+  > .-pasta-btn-group {
+    float: none;
+    display: table-cell;
+    width: 1%;
+  }
+  > .-pasta-btn-group .-pasta-btn {
+    width: 100%;
+  }
+
+  > .-pasta-btn-group .-pasta-dropdown-menu {
+    left: auto;
+  }
+}
+
+
+// Checkbox and radio options
+//
+// In order to support the browser's form validation feedback, powered by the
+// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
+// `display: none;` or `visibility: hidden;` as that also hides the popover.
+// Simply visually hiding the inputs via `opacity` would leave them clickable in
+// certain cases which is prevented by using `clip` and `pointer-events`.
+// This way, we ensure a DOM element is visible to position the popover from.
+//
+// See https://github.com/twbs/bootstrap/pull/12794 and
+// https://github.com/twbs/bootstrap/pull/14559 for more information.
+
+[data-toggle="buttons"] {
+  > .-pasta-btn,
+  > .-pasta-btn-group > .-pasta-btn {
+    input[type="radio"],
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0,0,0,0);
+      pointer-events: none;
+    }
+  }
+}

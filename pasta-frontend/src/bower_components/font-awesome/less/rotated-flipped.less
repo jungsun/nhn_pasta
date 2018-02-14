@@ -1,0 +1,20 @@
+// Rotated & Flipped Icons
+// -------------------------
+
+.-pasta-@{fa-css-prefix}-rotate-90  { .-pasta-fa-icon-rotate(90deg, 1);  }
+.-pasta-@{fa-css-prefix}-rotate-180 { .-pasta-fa-icon-rotate(180deg, 2); }
+.-pasta-@{fa-css-prefix}-rotate-270 { .-pasta-fa-icon-rotate(270deg, 3); }
+
+.-pasta-@{fa-css-prefix}-flip-horizontal { .-pasta-fa-icon-flip(-1, 1, 0); }
+.-pasta-@{fa-css-prefix}-flip-vertical   { .-pasta-fa-icon-flip(1, -1, 2); }
+
+// Hook for IE8-9
+// -------------------------
+
+:root .-pasta-@{fa-css-prefix}-rotate-90,
+:root .-pasta-@{fa-css-prefix}-rotate-180,
+:root .-pasta-@{fa-css-prefix}-rotate-270,
+:root .-pasta-@{fa-css-prefix}-flip-horizontal,
+:root .-pasta-@{fa-css-prefix}-flip-vertical {
+  filter: none;
+}

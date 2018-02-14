@@ -1,0 +1,30 @@
+// List Groups
+
+.-pasta-list-group-item-variant(@state; @background; @color) {
+  .-pasta-list-group-item-@{state} {
+    color: @color;
+    background-color: @background;
+
+    a&,
+    button& {
+      color: @color;
+
+      .-pasta-list-group-item-heading {
+        color: inherit;
+      }
+
+      &:hover,
+      &:focus {
+        color: @color;
+        background-color: darken(@background, 5%);
+      }
+      &.-pasta-active,
+      &.-pasta-active:hover,
+      &.-pasta-active:focus {
+        color: #fff;
+        background-color: @color;
+        border-color: @color;
+      }
+    }
+  }
+}

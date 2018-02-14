@@ -1,0 +1,66 @@
+.-pasta-media {
+  // Proper spacing between instances of .media
+  margin-top: 15px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.-pasta-media,
+.-pasta-media-body {
+  zoom: 1;
+  overflow: hidden;
+}
+
+.-pasta-media-body {
+  width: 10000px;
+}
+
+.-pasta-media-object {
+  display: block;
+
+  // Fix collapse in webkit from max-width: 100% and display: table-cell.
+  &.-pasta-img-thumbnail {
+    max-width: none;
+  }
+}
+
+.-pasta-media-right,
+.-pasta-media > .-pasta-pull-right {
+  padding-left: 10px;
+}
+
+.-pasta-media-left,
+.-pasta-media > .-pasta-pull-left {
+  padding-right: 10px;
+}
+
+.-pasta-media-left,
+.-pasta-media-right,
+.-pasta-media-body {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.-pasta-media-middle {
+  vertical-align: middle;
+}
+
+.-pasta-media-bottom {
+  vertical-align: bottom;
+}
+
+// Reset margins on headings for tighter default spacing
+.-pasta-media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+// Media list variation
+//
+// Undo default ul/ol styles
+.-pasta-media-list {
+  padding-left: 0;
+  list-style: none;
+}
